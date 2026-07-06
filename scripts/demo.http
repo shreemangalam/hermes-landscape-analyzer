@@ -1,0 +1,61 @@
+### Hermes demo requests (VS Code REST Client / IntelliJ HTTP client)
+
+### Landscape statistics
+GET http://localhost:8080/landscape/statistics
+
+### Landscape warnings — the intentional cycle and single-source consumers
+GET http://localhost:8080/landscape/warnings
+
+### Full health map
+GET http://localhost:8080/landscape/health-map
+
+### THE demo: SAP ECC goes down completely
+POST http://localhost:8080/analysis/impact
+Content-Type: application/json
+
+{
+  "system": "SAP_ECC",
+  "degradationType": "COMPLETE_OUTAGE"
+}
+
+### Retrieve a stored report (replace the id)
+GET http://localhost:8080/analysis/impact/{{reportId}}
+
+### Recovery sequence for a system sitting on the cycle
+POST http://localhost:8080/analysis/recovery-sequence
+Content-Type: application/json
+
+{
+  "system": "LEGACY_WMS"
+}
+
+### Register a new system at runtime
+POST http://localhost:8080/landscape/systems
+Content-Type: application/json
+
+{
+  "id": "PRICING_SERVICE",
+  "name": "Dynamic Pricing Service",
+  "type": "API",
+  "businessCriticality": 6,
+  "description": "Microservice for promotional pricing"
+}
+
+### Wire it into the landscape
+POST http://localhost:8080/landscape/integrations
+Content-Type: application/json
+
+{
+  "id": "IFL-100",
+  "name": "Price Push to CRM",
+  "source": "PRICING_SERVICE",
+  "target": "SALESFORCE",
+  "protocol": "REST",
+  "dataType": "PriceBook",
+  "businessProcess": "Order to Cash",
+  "criticality": 5,
+  "slaClass": "NEAR_REAL_TIME"
+}
+
+### Reset all statuses to HEALTHY
+POST http://localhost:8080/landscape/reset

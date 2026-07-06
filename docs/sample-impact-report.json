@@ -1,0 +1,666 @@
+{
+  "reportId": "2785e4c7-0716-476a-aa57-be8b1a56eb2a",
+  "generatedAt": "2026-07-06T10:53:18.038245300Z",
+  "degradedSystemId": "SAP_ECC",
+  "degradedSystemName": "SAP ECC 6.0",
+  "degradationType": "COMPLETE_OUTAGE",
+  "priority": "P1",
+  "prioritySummary": "P1 — Critical business event — immediate action required",
+  "affectedSystems": [
+    {
+      "systemId": "LEGACY_WMS",
+      "name": "Legacy Warehouse Management",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "CRITICAL",
+      "severityScore": 24.5,
+      "businessCriticality": 8
+    },
+    {
+      "systemId": "SALESFORCE",
+      "name": "Salesforce Sales Cloud",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "CRITICAL",
+      "severityScore": 23,
+      "businessCriticality": 9
+    },
+    {
+      "systemId": "SAP_S4",
+      "name": "SAP S/4HANA 2023",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "PARTIAL",
+      "severity": "HIGH",
+      "severityScore": 19.5,
+      "businessCriticality": 10
+    },
+    {
+      "systemId": "CUSTOMER_PORTAL",
+      "name": "B2B Customer Portal",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 18.5,
+      "businessCriticality": 8
+    },
+    {
+      "systemId": "FINANCE_SYSTEM",
+      "name": "Central Finance Hub",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "PARTIAL",
+      "severity": "HIGH",
+      "severityScore": 18,
+      "businessCriticality": 9
+    },
+    {
+      "systemId": "MDM_HUB",
+      "name": "Master Data Hub",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 16.1,
+      "businessCriticality": 8
+    },
+    {
+      "systemId": "BANK_GATEWAY",
+      "name": "Bank Payment Gateway",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 15.8,
+      "businessCriticality": 9
+    },
+    {
+      "systemId": "TAX_ENGINE",
+      "name": "External Tax Engine",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 15.5,
+      "businessCriticality": 7
+    },
+    {
+      "systemId": "EDI_GATEWAY",
+      "name": "EDI B2B Gateway",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 14.9,
+      "businessCriticality": 7
+    },
+    {
+      "systemId": "LEGACY_ERP",
+      "name": "Legacy Regional ERP",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "ORPHANED",
+      "severity": "HIGH",
+      "severityScore": 14,
+      "businessCriticality": 6
+    },
+    {
+      "systemId": "SUPPLIER_PORTAL",
+      "name": "Supplier Collaboration Portal",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "ORPHANED",
+      "severity": "MEDIUM",
+      "severityScore": 12.2,
+      "businessCriticality": 6
+    },
+    {
+      "systemId": "ARCHIVE_SYSTEM",
+      "name": "Enterprise Document Archive",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "ORPHANED",
+      "severity": "MEDIUM",
+      "severityScore": 9.5,
+      "businessCriticality": 3
+    },
+    {
+      "systemId": "SERVICENOW",
+      "name": "ServiceNow ITSM",
+      "hopDistance": 2,
+      "impactType": "CASCADE",
+      "sourcingStatus": "PARTIAL",
+      "severity": "MEDIUM",
+      "severityScore": 8.4,
+      "businessCriticality": 7
+    },
+    {
+      "systemId": "ANALYTICS_DWH",
+      "name": "Analytics Data Warehouse",
+      "hopDistance": 1,
+      "impactType": "DIRECT",
+      "sourcingStatus": "PARTIAL",
+      "severity": "LOW",
+      "severityScore": 5,
+      "businessCriticality": 5
+    }
+  ],
+  "affectedIntegrations": [
+    {
+      "rank": 1,
+      "integrationId": "IFL-010",
+      "name": "Outbound Delivery Dispatch",
+      "sourceId": "SAP_ECC",
+      "targetId": "LEGACY_WMS",
+      "protocol": "RFC",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "REAL_TIME",
+      "impactScore": 41
+    },
+    {
+      "rank": 2,
+      "integrationId": "IFL-034",
+      "name": "Material Master to WMS",
+      "sourceId": "SAP_ECC",
+      "targetId": "LEGACY_WMS",
+      "protocol": "IDOC",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "BATCH",
+      "impactScore": 35
+    },
+    {
+      "rank": 3,
+      "integrationId": "IFL-029",
+      "name": "Stock Correction Feedback",
+      "sourceId": "LEGACY_ERP",
+      "targetId": "LEGACY_WMS",
+      "protocol": "FILE",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "BATCH",
+      "impactScore": 34
+    },
+    {
+      "rank": 4,
+      "integrationId": "IFL-030",
+      "name": "Financial Document Archiving",
+      "sourceId": "SAP_ECC",
+      "targetId": "ARCHIVE_SYSTEM",
+      "protocol": "FILE",
+      "businessProcess": "Compliance",
+      "slaClass": "BATCH",
+      "impactScore": 33
+    },
+    {
+      "rank": 5,
+      "integrationId": "IFL-027",
+      "name": "Delivery Document Archiving",
+      "sourceId": "LEGACY_WMS",
+      "targetId": "ARCHIVE_SYSTEM",
+      "protocol": "FILE",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "BATCH",
+      "impactScore": 32
+    },
+    {
+      "rank": 6,
+      "integrationId": "IFL-028",
+      "name": "Retention Metadata Sync",
+      "sourceId": "ARCHIVE_SYSTEM",
+      "targetId": "LEGACY_ERP",
+      "protocol": "SOAP",
+      "businessProcess": "Compliance",
+      "slaClass": "BATCH",
+      "impactScore": 32
+    },
+    {
+      "rank": 7,
+      "integrationId": "IFL-011",
+      "name": "Goods Movement Confirmation",
+      "sourceId": "LEGACY_WMS",
+      "targetId": "SAP_S4",
+      "protocol": "SOAP",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 31.4
+    },
+    {
+      "rank": 8,
+      "integrationId": "IFL-001",
+      "name": "Sales Order Replication",
+      "sourceId": "SAP_ECC",
+      "targetId": "SALESFORCE",
+      "protocol": "IDOC",
+      "businessProcess": "Order to Cash",
+      "slaClass": "REAL_TIME",
+      "impactScore": 22.5
+    },
+    {
+      "rank": 9,
+      "integrationId": "IFL-005",
+      "name": "Invoice Posting Sync",
+      "sourceId": "SAP_ECC",
+      "targetId": "FINANCE_SYSTEM",
+      "protocol": "RFC",
+      "businessProcess": "Record to Report",
+      "slaClass": "REAL_TIME",
+      "impactScore": 22.5
+    },
+    {
+      "rank": 10,
+      "integrationId": "IFL-002",
+      "name": "Customer Master Distribution",
+      "sourceId": "SAP_ECC",
+      "targetId": "MDM_HUB",
+      "protocol": "IDOC",
+      "businessProcess": "Master Data Governance",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 20.6
+    },
+    {
+      "rank": 11,
+      "integrationId": "IFL-003",
+      "name": "Business Partner Replication",
+      "sourceId": "SAP_S4",
+      "targetId": "MDM_HUB",
+      "protocol": "ODATA",
+      "businessProcess": "Master Data Governance",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 20.6
+    },
+    {
+      "rank": 12,
+      "integrationId": "IFL-006",
+      "name": "Journal Entry Replication",
+      "sourceId": "SAP_S4",
+      "targetId": "FINANCE_SYSTEM",
+      "protocol": "ODATA",
+      "businessProcess": "Record to Report",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 19.8
+    },
+    {
+      "rank": 13,
+      "integrationId": "IFL-004",
+      "name": "Golden Record Sync to CRM",
+      "sourceId": "MDM_HUB",
+      "targetId": "SALESFORCE",
+      "protocol": "ODATA",
+      "businessProcess": "Master Data Governance",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 18.6
+    },
+    {
+      "rank": 14,
+      "integrationId": "IFL-035",
+      "name": "Pricing Conditions Sync",
+      "sourceId": "SAP_ECC",
+      "targetId": "SALESFORCE",
+      "protocol": "IDOC",
+      "businessProcess": "Order to Cash",
+      "slaClass": "BATCH",
+      "impactScore": 16
+    },
+    {
+      "rank": 15,
+      "integrationId": "IFL-013",
+      "name": "Order Status Publish",
+      "sourceId": "SALESFORCE",
+      "targetId": "CUSTOMER_PORTAL",
+      "protocol": "REST",
+      "businessProcess": "Order to Cash",
+      "slaClass": "REAL_TIME",
+      "impactScore": 15.5
+    },
+    {
+      "rank": 16,
+      "integrationId": "IFL-014",
+      "name": "Purchase Order Output",
+      "sourceId": "SAP_ECC",
+      "targetId": "EDI_GATEWAY",
+      "protocol": "IDOC",
+      "businessProcess": "Procure to Pay",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 14.6
+    },
+    {
+      "rank": 17,
+      "integrationId": "IFL-012",
+      "name": "Shipment Tracking Feed",
+      "sourceId": "LEGACY_WMS",
+      "targetId": "CUSTOMER_PORTAL",
+      "protocol": "REST",
+      "businessProcess": "Logistics Execution",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 12.2
+    },
+    {
+      "rank": 18,
+      "integrationId": "IFL-016",
+      "name": "Scheduling Agreement Releases",
+      "sourceId": "SAP_S4",
+      "targetId": "EDI_GATEWAY",
+      "protocol": "IDOC",
+      "businessProcess": "Procure to Pay",
+      "slaClass": "BATCH",
+      "impactScore": 11
+    },
+    {
+      "rank": 19,
+      "integrationId": "IFL-008",
+      "name": "Payment Batch Transfer",
+      "sourceId": "FINANCE_SYSTEM",
+      "targetId": "BANK_GATEWAY",
+      "protocol": "SFTP",
+      "businessProcess": "Record to Report",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 10.8
+    },
+    {
+      "rank": 20,
+      "integrationId": "IFL-017",
+      "name": "Tax Determination Callout",
+      "sourceId": "SAP_ECC",
+      "targetId": "TAX_ENGINE",
+      "protocol": "REST",
+      "businessProcess": "Order to Cash",
+      "slaClass": "REAL_TIME",
+      "impactScore": 10.5
+    },
+    {
+      "rank": 21,
+      "integrationId": "IFL-018",
+      "name": "Tax Determination Callout S4",
+      "sourceId": "SAP_S4",
+      "targetId": "TAX_ENGINE",
+      "protocol": "REST",
+      "businessProcess": "Order to Cash",
+      "slaClass": "REAL_TIME",
+      "impactScore": 10.5
+    },
+    {
+      "rank": 22,
+      "integrationId": "IFL-037",
+      "name": "Vendor Master Distribution",
+      "sourceId": "SAP_ECC",
+      "targetId": "EDI_GATEWAY",
+      "protocol": "IDOC",
+      "businessProcess": "Procure to Pay",
+      "slaClass": "BATCH",
+      "impactScore": 10
+    },
+    {
+      "rank": 23,
+      "integrationId": "IFL-015",
+      "name": "EDI Order Transmission",
+      "sourceId": "EDI_GATEWAY",
+      "targetId": "SUPPLIER_PORTAL",
+      "protocol": "AS2",
+      "businessProcess": "Procure to Pay",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 8.4
+    },
+    {
+      "rank": 24,
+      "integrationId": "IFL-025",
+      "name": "Case Escalation Sync",
+      "sourceId": "SALESFORCE",
+      "targetId": "SERVICENOW",
+      "protocol": "REST",
+      "businessProcess": "IT Service Management",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 6
+    },
+    {
+      "rank": 25,
+      "integrationId": "IFL-019",
+      "name": "Sales Analytics Extract",
+      "sourceId": "SAP_ECC",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "JDBC",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 5
+    },
+    {
+      "rank": 26,
+      "integrationId": "IFL-020",
+      "name": "Finance Analytics Extract",
+      "sourceId": "FINANCE_SYSTEM",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "JDBC",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 5
+    },
+    {
+      "rank": 27,
+      "integrationId": "IFL-038",
+      "name": "Remittance Advice Distribution",
+      "sourceId": "FINANCE_SYSTEM",
+      "targetId": "SUPPLIER_PORTAL",
+      "protocol": "REST",
+      "businessProcess": "Procure to Pay",
+      "slaClass": "BATCH",
+      "impactScore": 5
+    },
+    {
+      "rank": 28,
+      "integrationId": "IFL-026",
+      "name": "Warehouse Device Incidents",
+      "sourceId": "LEGACY_WMS",
+      "targetId": "SERVICENOW",
+      "protocol": "REST",
+      "businessProcess": "IT Service Management",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 4.8
+    },
+    {
+      "rank": 29,
+      "integrationId": "IFL-039",
+      "name": "Warranty Claims Feed",
+      "sourceId": "CUSTOMER_PORTAL",
+      "targetId": "SERVICENOW",
+      "protocol": "REST",
+      "businessProcess": "IT Service Management",
+      "slaClass": "NEAR_REAL_TIME",
+      "impactScore": 4.8
+    },
+    {
+      "rank": 30,
+      "integrationId": "IFL-021",
+      "name": "CRM Pipeline Extract",
+      "sourceId": "SALESFORCE",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "REST",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 4
+    },
+    {
+      "rank": 31,
+      "integrationId": "IFL-022",
+      "name": "Inventory Snapshot Extract",
+      "sourceId": "LEGACY_WMS",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "FILE",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 4
+    },
+    {
+      "rank": 32,
+      "integrationId": "IFL-023",
+      "name": "S4 Logistics Extract",
+      "sourceId": "SAP_S4",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "ODATA",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 4
+    },
+    {
+      "rank": 33,
+      "integrationId": "IFL-031",
+      "name": "Regional Sales Upload",
+      "sourceId": "LEGACY_ERP",
+      "targetId": "ANALYTICS_DWH",
+      "protocol": "FILE",
+      "businessProcess": "Analytics",
+      "slaClass": "BATCH",
+      "impactScore": 3
+    }
+  ],
+  "recommendedRecoverySequence": [
+    {
+      "step": 1,
+      "wave": 1,
+      "systemId": "SAP_ECC",
+      "systemName": "SAP ECC 6.0",
+      "action": "Restore SAP ECC 6.0 and verify core connectivity",
+      "rationale": "No upstream dependencies within the affected set — safe starting point",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 2,
+      "wave": 2,
+      "systemId": "LEGACY_WMS",
+      "systemName": "Legacy Warehouse Management",
+      "action": "Restore Legacy Warehouse Management as cycle break point within a coordinated maintenance window",
+      "rationale": "Part of a cyclic dependency — no valid topological order exists; unresolved upstream feed(s) LEGACY_ERP must be reconciled manually after restoration",
+      "manualInterventionRequired": true
+    },
+    {
+      "step": 3,
+      "wave": 3,
+      "systemId": "SAP_S4",
+      "systemName": "SAP S/4HANA 2023",
+      "action": "Restore SAP S/4HANA 2023, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) LEGACY_WMS restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 4,
+      "wave": 3,
+      "systemId": "ARCHIVE_SYSTEM",
+      "systemName": "Enterprise Document Archive",
+      "action": "Restore Enterprise Document Archive, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) LEGACY_WMS, SAP_ECC restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 5,
+      "wave": 4,
+      "systemId": "FINANCE_SYSTEM",
+      "systemName": "Central Finance Hub",
+      "action": "Restore Central Finance Hub, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) SAP_ECC, SAP_S4 restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 6,
+      "wave": 4,
+      "systemId": "MDM_HUB",
+      "systemName": "Master Data Hub",
+      "action": "Restore Master Data Hub, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) SAP_ECC, SAP_S4 restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 7,
+      "wave": 4,
+      "systemId": "EDI_GATEWAY",
+      "systemName": "EDI B2B Gateway",
+      "action": "Restore EDI B2B Gateway, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) SAP_ECC, SAP_S4 restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 8,
+      "wave": 4,
+      "systemId": "TAX_ENGINE",
+      "systemName": "External Tax Engine",
+      "action": "Restore External Tax Engine, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) SAP_ECC, SAP_S4 restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 9,
+      "wave": 4,
+      "systemId": "LEGACY_ERP",
+      "systemName": "Legacy Regional ERP",
+      "action": "Restore Legacy Regional ERP, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) ARCHIVE_SYSTEM restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 10,
+      "wave": 5,
+      "systemId": "BANK_GATEWAY",
+      "systemName": "Bank Payment Gateway",
+      "action": "Restore Bank Payment Gateway, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) FINANCE_SYSTEM restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 11,
+      "wave": 5,
+      "systemId": "SALESFORCE",
+      "systemName": "Salesforce Sales Cloud",
+      "action": "Restore Salesforce Sales Cloud, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) MDM_HUB, SAP_ECC restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 12,
+      "wave": 5,
+      "systemId": "SUPPLIER_PORTAL",
+      "systemName": "Supplier Collaboration Portal",
+      "action": "Restore Supplier Collaboration Portal, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) EDI_GATEWAY, FINANCE_SYSTEM restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 13,
+      "wave": 6,
+      "systemId": "CUSTOMER_PORTAL",
+      "systemName": "B2B Customer Portal",
+      "action": "Restore B2B Customer Portal, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) LEGACY_WMS, SALESFORCE restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 14,
+      "wave": 6,
+      "systemId": "ANALYTICS_DWH",
+      "systemName": "Analytics Data Warehouse",
+      "action": "Restore Analytics Data Warehouse, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) FINANCE_SYSTEM, LEGACY_ERP, LEGACY_WMS, SALESFORCE, SAP_ECC, SAP_S4 restored in earlier waves",
+      "manualInterventionRequired": false
+    },
+    {
+      "step": 15,
+      "wave": 7,
+      "systemId": "SERVICENOW",
+      "systemName": "ServiceNow ITSM",
+      "action": "Restore ServiceNow ITSM, then replay/verify inbound queues",
+      "rationale": "Upstream feed(s) CUSTOMER_PORTAL, LEGACY_WMS, SALESFORCE restored in earlier waves",
+      "manualInterventionRequired": false
+    }
+  ],
+  "landscapeWarnings": [
+    "Cycle detected: ARCHIVE_SYSTEM -> LEGACY_ERP -> LEGACY_WMS -> ARCHIVE_SYSTEM"
+  ],
+  "statistics": {
+    "totalAffectedSystems": 14,
+    "directImpactCount": 8,
+    "cascadeImpactCount": 6,
+    "orphanedConsumerCount": 10,
+    "partiallyDegradedCount": 4,
+    "maxCascadeDepth": 2,
+    "affectedIntegrationCount": 33,
+    "analysisDurationMicros": 955
+  }
+}

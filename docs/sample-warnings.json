@@ -1,0 +1,10 @@
+[
+  {
+    "type": "CYCLE",
+    "message": "Cycle detected: ARCHIVE_SYSTEM -> LEGACY_ERP -> LEGACY_WMS -> ARCHIVE_SYSTEM"
+  },
+  {
+    "type": "SINGLE_SOURCE_CONSUMER",
+    "message": "BANK_GATEWAY (criticality 9) depends on a single source FINANCE_SYSTEM — an outage there means complete data starvation"
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "step": 1,
+    "wave": 1,
+    "systemId": "LEGACY_WMS",
+    "systemName": "Legacy Warehouse Management",
+    "action": "Restore Legacy Warehouse Management as cycle break point within a coordinated maintenance window",
+    "rationale": "Part of a cyclic dependency — no valid topological order exists; unresolved upstream feed(s) LEGACY_ERP must be reconciled manually after restoration",
+    "manualInterventionRequired": true
+  },
+  {
+    "step": 2,
+    "wave": 2,
+    "systemId": "SAP_S4",
+    "systemName": "SAP S/4HANA 2023",
+    "action": "Restore SAP S/4HANA 2023, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) LEGACY_WMS restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 3,
+    "wave": 2,
+    "systemId": "ARCHIVE_SYSTEM",
+    "systemName": "Enterprise Document Archive",
+    "action": "Restore Enterprise Document Archive, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) LEGACY_WMS restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 4,
+    "wave": 3,
+    "systemId": "FINANCE_SYSTEM",
+    "systemName": "Central Finance Hub",
+    "action": "Restore Central Finance Hub, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) SAP_S4 restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 5,
+    "wave": 3,
+    "systemId": "MDM_HUB",
+    "systemName": "Master Data Hub",
+    "action": "Restore Master Data Hub, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) SAP_S4 restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 6,
+    "wave": 3,
+    "systemId": "EDI_GATEWAY",
+    "systemName": "EDI B2B Gateway",
+    "action": "Restore EDI B2B Gateway, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) SAP_S4 restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 7,
+    "wave": 3,
+    "systemId": "TAX_ENGINE",
+    "systemName": "External Tax Engine",
+    "action": "Restore External Tax Engine, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) SAP_S4 restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 8,
+    "wave": 3,
+    "systemId": "LEGACY_ERP",
+    "systemName": "Legacy Regional ERP",
+    "action": "Restore Legacy Regional ERP, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) ARCHIVE_SYSTEM restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 9,
+    "wave": 4,
+    "systemId": "BANK_GATEWAY",
+    "systemName": "Bank Payment Gateway",
+    "action": "Restore Bank Payment Gateway, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) FINANCE_SYSTEM restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 10,
+    "wave": 4,
+    "systemId": "SALESFORCE",
+    "systemName": "Salesforce Sales Cloud",
+    "action": "Restore Salesforce Sales Cloud, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) MDM_HUB restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 11,
+    "wave": 4,
+    "systemId": "SUPPLIER_PORTAL",
+    "systemName": "Supplier Collaboration Portal",
+    "action": "Restore Supplier Collaboration Portal, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) EDI_GATEWAY, FINANCE_SYSTEM restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 12,
+    "wave": 5,
+    "systemId": "CUSTOMER_PORTAL",
+    "systemName": "B2B Customer Portal",
+    "action": "Restore B2B Customer Portal, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) LEGACY_WMS, SALESFORCE restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 13,
+    "wave": 5,
+    "systemId": "ANALYTICS_DWH",
+    "systemName": "Analytics Data Warehouse",
+    "action": "Restore Analytics Data Warehouse, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) FINANCE_SYSTEM, LEGACY_ERP, LEGACY_WMS, SALESFORCE, SAP_S4 restored in earlier waves",
+    "manualInterventionRequired": false
+  },
+  {
+    "step": 14,
+    "wave": 6,
+    "systemId": "SERVICENOW",
+    "systemName": "ServiceNow ITSM",
+    "action": "Restore ServiceNow ITSM, then replay/verify inbound queues",
+    "rationale": "Upstream feed(s) CUSTOMER_PORTAL, LEGACY_WMS, SALESFORCE restored in earlier waves",
+    "manualInterventionRequired": false
+  }
+]
